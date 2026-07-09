@@ -1,11 +1,32 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import HouseMenu from "../components/HouseMenu.astro";
+import Layout from "../layouts/Layout.astro";
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
 <Layout>
-	<Welcome />
+	<main
+		class="bg-sky-100 min-h-screen overflow-hidden flex flex-col items-center justify-center"
+	>
+		<div class="absolute top-0 left-0 w-full text-8xl text-left p-8"></div>
+		<div class="relative w-full">
+			<div class="absolute top-0 left-0 w-full text-4xl md:text-8xl text-left p-8">
+				☀️
+			</div>
+			<h1
+				class="relative text-center font-mono text-4xl md:text-8xl font-bold m-8 z-10 text-shadow-lg text-shadow-white/60"
+			>
+				House800
+			</h1>
+		</div>
+
+		<div class="pt-18 w-full">
+			<HouseMenu />
+		</div>
+		<footer class="absolute bottom-4 w-full text-center text-stone-500">
+			&copy; 2026 Web800 All Rights Reserved.
+		</footer>
+	</main>
 </Layout>

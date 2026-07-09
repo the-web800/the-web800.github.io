@@ -1,0 +1,31 @@
+---
+import ElevatorIcon from "../components/ElevatorIcon.astro";
+import Elevator from "../components/Elevator.svelte";
+import "../styles/global.css";
+const { title, floor } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | House800</title>
+	</head>
+	<body class="flex flex-col h-screen">
+		<div class="fixed bottom-0 right-0">
+			<ElevatorIcon {floor} />
+		</div>
+		<div class="flex-1">
+			<slot />
+		</div>
+		<footer class=" w-full text-center text-white font-serif bg-taupe-500">
+			<div class="m-4">
+				<p>&copy; 2026 Web800 All Rights Reserved.</p>
+			</div>
+		</footer>
+	</body>
+</html>

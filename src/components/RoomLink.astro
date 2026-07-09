@@ -1,0 +1,14 @@
+---
+const { href, className, textColor, name } = Astro.props;
+---
+
+<a
+    href={href}
+    class={`${className} flex items-center justify-center border-2 border-slate-400 hover:bg-opacity-50 transition-all duration-300 group relative overflow-hidden`}
+>
+    <span
+        class={`font-mono font-bold ${textColor} group-hover:scale-125 transition-transform`}
+    >
+        {name}
+    </span>
+</a>
