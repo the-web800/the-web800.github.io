@@ -27,7 +27,6 @@ export async function GET(context: APIContext) {
 			const { Content } = await render(post);
 			const rawHtml = await container.renderToString(Content);
 			// DOCTYPE htmlを消して、hrefとsrcのリンクを絶対パスにして、scriptとstyleを消す
-			console.log(rawHtml);
 			const content = await transform(rawHtml.replace(/^<!DOCTYPE html>/, ""), [
 				async (node) => {
 					await walk(node, (node) => {
