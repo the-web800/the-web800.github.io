@@ -10,7 +10,9 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
-		"check:links": "lychee ./dist --root-dir ./dist --remap \"^https://the-web800\\.github\\.io file://$(pwd)/dist\""
+		"check:links": "lychee ./dist --root-dir ./dist --remap \"^https://the-web800\\.github\\.io file://$(pwd)/dist\"",
+		"check:biome": "biome check",
+		"check:write": "biome check --write"
 	},
 	"dependencies": {
 		"@astrojs/mdx": "^8.1.0",
