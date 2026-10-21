@@ -1,0 +1,18 @@
+---
+import { getEntry } from "astro:content";
+import BlogContent from "../../../components/blog/BlogContent.astro";
+import GameniFooter from "../../../components/works/gameni/GameniFooter.astro";
+import GameniLayout from "../../../layouts/rooms/GameniLayout.astro";
+
+const post = await getEntry("blog", "other/gameni_terms");
+if (!post) {
+	throw new Error("Gameni terms does not exist");
+}
+---
+
+<GameniLayout noHeaderH1>
+	<main class="w-full h-full flex flex-col items-center">
+		<BlogContent {post} />
+		<GameniFooter />
+	</main>
+</GameniLayout>

@@ -1,0 +1,22 @@
+---
+import Footer from "../../components/Footer.astro";
+import Header from "../../components/Header.astro";
+import Layout from "../Layout.astro";
+
+interface Props {
+	noHeaderH1?: boolean;
+}
+
+const title = "ガメニのひまつぶし";
+const { noHeaderH1 = false } = Astro.props;
+---
+
+<Layout {title}>
+	<div class="flex flex-col min-h-svh">
+		<Header {title} top="/works/gameni" {noHeaderH1} />
+		<div class="flex-1">
+			<slot />
+		</div>
+		<Footer />
+	</div>
+</Layout>

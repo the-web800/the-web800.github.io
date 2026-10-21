@@ -1,7 +1,66 @@
 ---
+import FloorGuide from "../components/FloorGuide.astro";
+import ExternalLink from "../components/links/ExternalLink.astro";
 import RoomLayout from "../layouts/RoomLayout.astro";
 ---
 
-<RoomLayout title="About" floor="1">
-    <h1>About (応接間)</h1> 
+<RoomLayout title="About" floor="1" top="/about">
+	<div class="flex flex-col h-full items-center">
+		<main class="flex flex-col items-center">
+			<div class="flex flex-col md:flex-row items-start justify-center">
+				<section class="m-5">
+					<h2 class="w-full text-center text-2xl font-bold">建築</h2>
+					<table class="w-sm">
+						<tbody>
+							{[
+								["名称", "House800"],
+								["施工", "2026年7月"],
+								["構造", "Astro + Svelte"],
+								["その他", "Tailwind CSS, Lucide"],
+								[
+									"住所",
+									<ExternalLink href="https://the-web800.github.io/">
+										https://the-web800.github.io/
+									</ExternalLink>,
+								],
+							].map(([k, v]) => (
+								<tr class="border-b-2 border-olive-500">
+									<th class="w-16">{k}</th>
+									<td>{v}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</section>
+				<section class="m-5">
+					<h2 class="w-full text-center text-2xl font-bold">家主</h2>
+					<table class="w-sm">
+						<tbody>
+							{[
+								["名前", "Web800"],
+								["趣味", "コーディング, ロボット競技, パズル, 他にもたくさん"],
+								["好きな言語", "Swift, Rust, C++"],
+								[
+									"note",
+									<ExternalLink href="https://note.com/web800">
+										Web800 | note
+									</ExternalLink>,
+								],
+							].map(([k, v]) => (
+								<tr class="border-b-2 border-olive-500">
+									<th class="w-24">{k}</th>
+									<td>{v}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</section>
+			</div>
+
+			<section class="m-5">
+				<h2 class="w-full text-center text-2xl font-bold">フロアガイド</h2>
+				<FloorGuide />
+			</section>
+		</main>
+	</div>
 </RoomLayout>

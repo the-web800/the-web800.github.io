@@ -1,57 +1,52 @@
 ---
 import RoomLink from "./RoomLink.astro";
 import Stair from "./Stair.astro";
+
 const { current = "Entrance" } = Astro.props;
 ---
 
 <div class="relative w-full max-w-4xl mx-auto">
-    <div
-        class="absolute top-[66.6%] left-[-100vw] right-[-100vw] bottom-[-50vh] bg-linear-to-b from-lime-500 via-yellow-900 via-20% to-stone-800"
-    >
-    </div>
-    <div class="relative flex m-8">
-        <div class="absolute -top-30 left-[-2vw] right-[-2vw]">
-            <div
-                class="[clip-path:polygon(50%_0%,100%_100%,0%_100%)] bg-red-500 h-30"
-            >
-            </div>
-        </div>
-        <div class="h-full absolute left-[-2vw] bottom-[33.3%]">
-            <Stair />
-        </div>
-        <div
-            class="flex-1 relative grid grid-cols-5 grid-rows-3 gap-0.5 md:gap-1 bg-slate-400 p-2 rounded-sm shadow-2xl aspect-video"
-        >
-            <RoomLink href="/den" name="Den" className="bg-orange-100" />
-            <RoomLink
-                href="/studio"
-                name="Studio"
-                className="col-span-2 bg-rose-100"
-            />
-            <RoomLink
-                href="/blog"
-                name="Blog"
-                className="col-span-2 bg-cyan-100"
-            />
+	<div
+		class="absolute top-[66.6%] left-[-100vw] right-[-100vw] bottom-[-50vh] bg-linear-to-b from-lime-500 via-yellow-900 via-20% to-stone-800"
+	></div>
+	<div class="relative flex m-8">
+		<div class="absolute -top-30 left-[-2vw] right-[-2vw]">
+			<div
+				class="[clip-path:polygon(50%_0%,100%_100%,0%_100%)] bg-red-500 h-30"
+			></div>
+		</div>
+		<div class="h-full absolute left-[-2vw] bottom-[33.3%]">
+			<Stair />
+		</div>
+		<div
+			class="flex-1 relative grid grid-cols-5 grid-rows-3 gap-0.5 md:gap-1 bg-slate-400 p-2 rounded-sm shadow-2xl aspect-video"
+		>
+			<RoomLink href="/den" name="Den" className="bg-orange-100" />
+			<RoomLink
+				href="/studio"
+				name="Studio"
+				className="col-span-2 bg-rose-100"
+			/>
+			<RoomLink href="/blog" name="Blog" className="col-span-2 bg-cyan-100" />
 
-            <RoomLink
-                href="/"
-                name={current === "Entrance" ? "Here📍" : "Entrance"}
-                className="col-span-2 bg-slate-200"
-                textColor={current === "Entrance" ? "text-black/20" : ""}
-            />
-            <RoomLink
-                href="/about"
-                name="About"
-                className="col-span-3 bg-emerald-100"
-            />
+			<RoomLink
+				href="/"
+				name={current === "Entrance" ? "Here📍" : "Entrance"}
+				className="col-span-2 bg-slate-200"
+				textColor={current === "Entrance" ? "text-black/20" : ""}
+			/>
+			<RoomLink
+				href="/about"
+				name="About"
+				className="col-span-3 bg-emerald-100"
+			/>
 
-            <RoomLink
-                href="/lab"
-                name="Lab"
-                className="col-span-5 bg-linear-to-b from-stone-600 to-stone-800"
-                textColor="text-white"
-            />
-        </div>
-    </div>
+			<RoomLink
+				href="/lab"
+				name="Lab"
+				className="col-span-5 bg-linear-to-b from-stone-600 to-stone-800"
+				textColor="text-white"
+			/>
+		</div>
+	</div>
 </div>

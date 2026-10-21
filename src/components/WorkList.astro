@@ -1,0 +1,14 @@
+---
+import type { Work } from "../lib/works";
+import WorkCard from "./WorkCard.astro";
+
+interface Props {
+	works: Work[];
+}
+
+const { works } = Astro.props;
+---
+
+<div class="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+	{works.map((work) => <WorkCard {work} />)}
+</div>

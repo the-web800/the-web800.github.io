@@ -1,0 +1,25 @@
+---
+import InternalLink from "./InternalLink.astro";
+---
+
+<InternalLink
+	data-user="contact.web800"
+	data-host="proton.me"
+	data-proto="mailto:"
+	href="#"
+	class="mail"
+>
+	<slot />
+</InternalLink>
+
+<script>
+document.querySelectorAll<HTMLElement>(".mail").forEach((el) => {
+	const user = el.dataset.user;
+	const host = el.dataset.host;
+	const proto = el.dataset.proto;
+
+	if (user && host && proto) {
+		el.setAttribute("href", `${proto}${user}@${host}`);
+	}
+});
+</script>

@@ -1,0 +1,27 @@
+---
+interface Props {
+	title: string;
+	fixed?: boolean;
+	top: string;
+	noHeaderH1?: boolean;
+}
+const { title, fixed = true, top, noHeaderH1 = false } = Astro.props;
+---
+
+<header
+	class:list={[
+		"bg-olive-500 w-full text-center",
+		fixed ? "sticky top-0 z-50" : "",
+	]}
+>
+	<div class="w-full flex items-center justify-between">
+		<a href="/" class="justify-self-start text-4xl m-5 mr-2"> 🏠️ </a>
+		<a
+			class="justify-self-center text-2xl md:text-4xl w-fit m-5 text-stone-200 font-bold font-serif"
+			href={top}
+		>
+			{noHeaderH1 ? <span>{title}</span> : <h1>{title}</h1>}
+		</a>
+		<div class="h-2 w-16"></div>
+	</div>
+</header>

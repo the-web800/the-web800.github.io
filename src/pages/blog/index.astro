@@ -1,0 +1,52 @@
+---
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+import BlogList from "../../components/blog/BlogList.astro";
+import ExternalLink from "../../components/links/ExternalLink.astro";
+import InternalLink from "../../components/links/InternalLink.astro";
+import RoomLayout from "../../layouts/RoomLayout.astro";
+
+const allPosts = (await getCollection("blog")).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const news = allPosts
+	.filter((post) => {
+		return (
+			post.data.tags.includes("_news") && !post.data.tags.includes("_other")
+		);
+	})
+	.slice(0, 3);
+const blog = allPosts.filter((post) => {
+	return (
+		!post.data.tags.includes("_news") && !post.data.tags.includes("_other")
+	);
+});
+---
+
+<RoomLayout title="Blog" floor="2" top="/blog">
+	<div class="w-full flex flex-col items-center">
+		<ExternalLink
+			href="/rss.xml"
+			class="w-full max-w-sm justify-center flex items-center m-4 p-2 bg-stone-100 border-2 border-stone-200 shadow-lg rounded-2xl"
+		>
+			<Icon name="lucide:rss" class="text-xl mr-2" />
+			<p>House800はRSSに対応しています</p>
+		</ExternalLink>
+	</div>
+	<section
+		class="flex flex-col items-center border-b border-gray-300 pb-5 mx-5 mt-5"
+	>
+		<h2 class="w-full m-2 text-center text-2xl font-bold">News</h2>
+		<div class="m-2">
+			<BlogList entries={news} />
+		</div>
+		<InternalLink href="/blog/news">すべてのニュースを見る</InternalLink>
+	</section>
+	<section class="mt-5 flex flex-col items-center">
+		<h2 class="w-full m-2 text-center text-2xl font-bold">Blog</h2>
+		<div class="m-2">
+			<BlogList entries={blog} />
+		</div>
+	</section>
+</RoomLayout>

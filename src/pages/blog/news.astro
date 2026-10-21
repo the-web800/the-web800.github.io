@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import BlogList from "../../components/blog/BlogList.astro";
+import InternalLink from "../../components/links/InternalLink.astro";
+import RoomLayout from "../../layouts/RoomLayout.astro";
+
+const allPosts = await getCollection("blog");
+const news = allPosts
+	.filter((post) => {
+		return (
+			post.data.tags.includes("_news") && !post.data.tags.includes("_other")
+		);
+	})
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<RoomLayout title="News" floor="2" top="/blog/news">
+	<section class="flex h-full flex-col items-center">
+		<p class="m-5">更新履歴等のニュースです。</p>
+		<div class="m-2 flex-1">
+			<BlogList entries={news} />
+		</div>
+		<InternalLink href="/blog/" class="m-5 text-xl"
+			>Blog 部屋トップへ戻る</InternalLink
+		>
+	</section>
+</RoomLayout>

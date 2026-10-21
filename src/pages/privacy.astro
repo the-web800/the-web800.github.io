@@ -1,0 +1,16 @@
+---
+import { getEntry } from "astro:content";
+import BlogContent from "../components/blog/BlogContent.astro";
+import RoomLayout from "../layouts/RoomLayout.astro";
+
+const post = await getEntry("blog", "other/terms");
+if (!post) {
+	throw new Error("House800 terms does not exist");
+}
+---
+
+<RoomLayout title="House800" floor="1" top="/" noHeaderH1>
+	<main class="w-full h-full flex flex-col items-center">
+		<BlogContent {post} />
+	</main>
+</RoomLayout>

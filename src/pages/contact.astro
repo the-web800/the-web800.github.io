@@ -1,0 +1,68 @@
+---
+import ExternalLink from "../components/links/ExternalLink.astro";
+import MailLink from "../components/links/MailLink.astro";
+import RoomLayout from "../layouts/RoomLayout.astro";
+---
+
+<RoomLayout title="Contact" floor="1" top="/contact">
+	<div class="flex flex-col h-full items-center">
+		<main class="flex flex-col items-center m-5">
+			<p>連絡の方法はいくつかあるので、目的にあわせて選択してください。</p>
+
+			<section class="m-5 flex flex-col items-center">
+				<h2
+					class="w-full text-center text-2xl font-bold flex gap-2 justify-center m-2"
+				>
+					1.
+					<ExternalLink
+						href="https://github.com/the-web800/the-web800.github.io/discussions"
+						>GitHub Discussions</ExternalLink
+					>
+				</h2>
+
+				<p>
+					内容は公開されますが、雑談も技術的な話も、他の問い合わせもできます。
+				</p>
+				<p>GitHubのアカウントがあれば投稿できます。</p>
+				<p>最初にGeneralのルールをご覧ください。</p>
+			</section>
+			<section class="m-5 flex flex-col items-center">
+				<h2
+					class="w-full text-center text-2xl font-bold flex gap-2 justify-center m-2"
+				>
+					2.
+					<ExternalLink
+						href="https://github.com/the-web800/the-web800.github.io/issues"
+						>GitHub Issues</ExternalLink
+					>
+				</h2>
+
+				<p>バグ報告や要望などはこちらへ。</p>
+				<p>こちらもGitHubのアカウントがあれば投稿できます。</p>
+			</section>
+			<section class="m-5 flex flex-col items-center">
+				<h2
+					class="w-full text-center text-2xl font-bold flex gap-2 justify-center m-2"
+				>
+					3.
+					<ExternalLink href="https://note.com/qa/web800"
+						>note質問箱</ExternalLink
+					>
+				</h2>
+
+				<p>noteのアカウントはなくても質問できます。</p>
+				<p>質問に回答がつくと公開されます。</p>
+			</section>
+			<section class="m-5 flex flex-col items-center">
+				<h2
+					class="w-full text-center text-2xl font-bold flex gap-2 justify-center m-2"
+				>
+					4.
+					<MailLink> メール </MailLink>
+				</h2>
+
+				<p>基本的に内容は公開されません。</p>
+			</section>
+		</main>
+	</div>
+</RoomLayout>

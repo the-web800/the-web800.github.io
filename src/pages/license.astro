@@ -1,0 +1,93 @@
+---
+import { Icon } from "astro-icon/components";
+import ExternalLink from "../components/links/ExternalLink.astro";
+import InternalLink from "../components/links/InternalLink.astro";
+import RoomLayout from "../layouts/RoomLayout.astro";
+---
+
+<RoomLayout title="License" floor="1" top="/license">
+	<div class="flex flex-col h-full items-center">
+		<main class="flex flex-col items-start m-5 max-w-prose">
+			<p>
+				House800（<ExternalLink
+					href="https://github.com/the-web800/the-web800.github.io/"
+					>リポジトリ</ExternalLink
+				>）のライセンスについて説明します。
+			</p>
+			<p>
+				このページは法的に有効なライセンスを定めるものではありません。原文は<ExternalLink
+					href="https://github.com/the-web800/the-web800.github.io/"
+					>リポジトリ</ExternalLink
+				>のREADME及び関連するライセンスファイルをご覧ください。
+			</p>
+			<p>
+				同じドメイン上のページでも、このリポジトリに含まれないコンテンツには適用されないので、ご注意ください。
+			</p>
+			<p>
+				分からないことがあれば、<InternalLink href="/contact"
+					>ご連絡ページ</InternalLink
+				>
+				から気軽にご連絡ください。
+			</p>
+
+			<section class="my-4 flex flex-col self-center items-center gap-4">
+				<h2 class="w-full text-center text-2xl font-bold">早見表</h2>
+				<table class="max-w-md w-full table-fixed">
+					<tbody>
+						{[
+							[
+								<Icon name="lucide:square-text" />,
+								"基本（コード・文章）",
+								<ExternalLink href="https://github.com/the-web800/the-web800.github.io/blob/main/LICENSE.md">
+									MIT
+								</ExternalLink>,
+							],
+							[
+								<Icon name="lucide:file-image" />,
+								"画像等メディアファイル",
+								<ExternalLink href="https://creativecommons.org/licenses/by/4.0/">
+									CC BY 4.0
+								</ExternalLink>,
+							],
+							[
+								<Icon name="lucide:ellipsis" />,
+								"個別に明示されたもの",
+								"個別指定を優先",
+							],
+							[
+								<Icon name="lucide:square-arrow-out-up-right" />,
+								"第三者の著作物",
+								"それぞれの条件に従う",
+							],
+						].map(([i, k, v]) => (
+							<tr class="border-b-2 border-olive-500 flex items-center h-8">
+								<th class="w-44 flex items-center gap-2 text-sm h-full text-stone-800">
+									<span class="text-base">{i}</span>
+									{k}
+								</th>
+								<td>{v}</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</section>
+			<p>
+				主に、メディアファイルは<code class="mx-2">src/assets/</code>か<code
+					>public/</code
+				>に入っています。ただし、ファイルの配置場所だけでライセンスが決まるわけではないことに注意してください。
+			</p>
+			<p>
+				このサイトでは、第三者の著作物も使用しています（例：Lucide、Unsplash等）。
+			</p>
+			<p>
+				それらについては、House800のライセンスの対象外ですので、著作者が定める条件に従ってください。
+			</p>
+			<p>
+				ご連絡いただければ、ここに記載のないケースでも許可できる場合があります。気軽に<InternalLink
+					href="/contact"
+					>ご相談</InternalLink
+				>ください。
+			</p>
+		</main>
+	</div>
+</RoomLayout>

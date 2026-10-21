@@ -1,21 +1,21 @@
 ---
 import type { GetStaticPaths } from "astro";
+import Elevator from "../../components/elevator/Elevator.svelte";
 import Layout from "../../layouts/Layout.astro";
-import Elevator from "../../components/Elevator.svelte";
 
 export const getStaticPaths = (() => {
-    return [
-        { params: { floor: "0" } },
-        { params: { floor: "1" } },
-        { params: { floor: "2" } },
-    ];
+	return [
+		{ params: { floor: "0" } },
+		{ params: { floor: "1" } },
+		{ params: { floor: "2" } },
+	];
 }) satisfies GetStaticPaths;
 
 const { floor } = Astro.params;
 ---
 
 <Layout>
-    <main class="h-screen overflow-hidden">
-        <Elevator initialFloor={Number(floor)} client:load />
-    </main>
+	<main class="h-svh overflow-hidden">
+		<Elevator initialFloor={Number(floor)} client:load />
+	</main>
 </Layout>

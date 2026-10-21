@@ -1,0 +1,20 @@
+---
+import InternalLink from "../../../../components/links/InternalLink.astro";
+import GameniFooter from "../../../../components/works/gameni/GameniFooter.astro";
+import GameniLayout from "../../../../layouts/rooms/GameniLayout.astro";
+---
+
+<GameniLayout>
+	<main class="mx-auto w-full h-full max-w-lg flex flex-col gap-4 items-center">
+		<article class="m-4 flex flex-col w-full items-center gap-2 flex-1">
+			<h2 class="text-3xl text-center m-2">送信が完了しました！</h2>
+			<p>報告ありがとうございます！ガメニも喜んでいると思います。</p>
+			<p>返信が必要な場合は、メールでお問い合わせください。</p>
+			<InternalLink href="/works/gameni/support/"
+				>サポートページへ戻る</InternalLink
+			>
+		</article>
+		<div class="border-t border-stone-400 w-full my-2"></div>
+		<GameniFooter />
+	</main>
+</GameniLayout>

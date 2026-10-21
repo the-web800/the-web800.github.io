@@ -1,0 +1,47 @@
+---
+import MailLink from "../../../../components/links/MailLink.astro";
+import GameniFooter from "../../../../components/works/gameni/GameniFooter.astro";
+import GameniLayout from "../../../../layouts/rooms/GameniLayout.astro";
+---
+
+<GameniLayout>
+	<main class="mx-auto w-full max-w-lg flex flex-col gap-4 items-center">
+		<section class="m-4 flex flex-col w-full items-center">
+			<h2 class="text-3xl text-center m-2">メールでのお問い合わせ</h2>
+			<p>返信が必要な場合はメールでご連絡ください。</p>
+			<MailLink>
+				&#x63;&#x6f;&#x6e;&#x74;&#x61;&#x63;&#x74;&#x2e;&#x77;&#x65;&#x62;&#x38;&#x30;&#x30;&#x40;&#x70;&#x72;&#x6f;&#x74;&#x6f;&#x6e;&#x2e;&#x6d;&#x65;
+			</MailLink>
+		</section>
+		<section class="flex flex-col gap-4 w-full">
+			<div class="border-t border-stone-400 w-full my-2"></div>
+			<h2 class="text-3xl text-center m-2">匿名バグ報告</h2>
+			<iframe
+				data-tally-src="https://tally.so/embed/xVxDd9?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+				loading="lazy"
+				width="100%"
+				height="655"
+				title="ガメニのひまつぶし 匿名バグ報告"
+			></iframe>
+
+			<script>
+			const script = document.createElement("script");
+			script.src = "https://tally.so/widgets/embed.js";
+			script.onload = () => {
+				type TallyWindow = Window & {
+					Tally?: {
+						loadEmbeds: () => void;
+					};
+				};
+
+				const tallyWindow = window as TallyWindow;
+
+				tallyWindow.Tally?.loadEmbeds();
+			};
+			document.head.appendChild(script);
+			</script>
+		</section>
+		<div class="border-t border-stone-400 w-full my-2"></div>
+		<GameniFooter />
+	</main>
+</GameniLayout>

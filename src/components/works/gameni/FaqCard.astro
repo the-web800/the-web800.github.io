@@ -1,0 +1,23 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+	question: string;
+}
+const { question } = Astro.props;
+---
+
+<details class="rounded-lg bg-sky-200 border-2 border-gray-700 p-4 m-2">
+	<summary class="list-none flex items-center">
+		<span class="w-full">{question}</span>
+		<!-- <ChevronRight -->
+		<!-- class="stroke-current fill-current w-[1em] h-[1em] in-open:rotate-90 transition-transform" -->
+		<!-- /> -->
+		<Icon
+			name="lucide:chevron-right"
+			class="stroke-current fill-current w-[1em] h-[1em] in-open:rotate-90 transition-transform"
+		/>
+	</summary>
+	<div class="w-full h-0 border-t border-gray-700 my-4"></div>
+	<slot />
+</details>

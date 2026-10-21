@@ -1,18 +1,43 @@
 ---
 import "../styles/global.css";
+
+interface Props {
+	title?: string;
+}
+
+const { title } = Astro.props;
+const gtmScript = `<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-P2XSCB8N');</script>
+<!-- End Google Tag Manager -->`;
+const gtmNoScript = `<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P2XSCB8N"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->`;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>House800</title>
+		<Fragment set:html={gtmScript} />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg"> -->
+		<!-- <link rel="icon" href="/favicon.ico"> -->
+		<meta name="generator" content={Astro.generator}>
+		<link
+			rel="alternate"
+			type="application/rss+xml"
+			title="House800 Blog"
+			href="/rss.xml"
+		>
+		<title>{title ? `${title} | House800` : "House800"}</title>
 	</head>
 	<body>
+		<Fragment set:html={gtmNoScript} />
 		<slot />
 	</body>
 </html>

@@ -1,0 +1,20 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
+import { externalLinkStyle } from "../../lib/link";
+import { cn } from "../../lib/utils";
+
+type Props = HTMLAttributes<"a">;
+const { class: className, ...props } = Astro.props;
+---
+
+<!-- biome-ignore lint/a11y/useValidAnchor: content provided by Slot -->
+<a
+	class={cn(externalLinkStyle, className)}
+	target="_blank"
+	rel="noopener noreferrer"
+	{...props}
+>
+	<slot />
+	<Icon name="lucide:external-link" />
+</a>

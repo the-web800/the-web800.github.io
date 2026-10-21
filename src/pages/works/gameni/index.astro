@@ -1,0 +1,42 @@
+---
+import InternalLink from "../../../components/links/InternalLink.astro";
+import FaqCard from "../../../components/works/gameni/FaqCard.astro";
+import GameniFooter from "../../../components/works/gameni/GameniFooter.astro";
+import GameniLayout from "../../../layouts/rooms/GameniLayout.astro";
+---
+
+<GameniLayout>
+	<main class="mx-auto w-full max-w-lg flex flex-col gap-4 items-center">
+		<section class="mt-4 flex flex-col items-center">
+			<h2 class="text-3xl text-center m-2">紹介記事</h2>
+			<p>当アプリについて、紹介した記事がありますのでご覧ください。</p>
+			<InternalLink href="/blog/c/gameni" class="mt-2">紹介記事へ</InternalLink>
+		</section>
+		<section class="m-4">
+			<h2 class="text-3xl text-center m-2">収録ミニゲーム</h2>
+			<ul class="list-disc list-inside text-left max-w-lg w-full">
+				<li>理不尽神経衰弱: 家族の下手な絵を使った神経衰弱</li>
+				<li>ファミリー将棋: 少し困った駒たちの将棋</li>
+				<li>絵しりとりパズル: スライドパズルで絵しりとり</li>
+				<li>おみくじ: 何が出てくるかはお楽しみ</li>
+				<li>UFOクイズ: UFOから発射される物の正体を当てるクイズ</li>
+			</ul>
+		</section>
+		<section>
+			<h2 class="text-3xl text-center m-2">対応環境</h2>
+			<p>iOS 18以降を搭載したiPhone</p>
+		</section>
+		<section class="flex flex-col gap-4 w-full">
+			<h2 class="text-3xl text-center m-2">Q&amp;A</h2>
+			<FaqCard question="バグに遭遇しました。">
+				<InternalLink href="/works/gameni/support">こちら</InternalLink>
+				にバグを報告いただけると助かります。匿名で報告できます。
+			</FaqCard>
+			<FaqCard question="Android版のリリース予定はありますか？">
+				SwiftUIで開発しているので、リリース予定はありません。
+			</FaqCard>
+			<FaqCard question="ガメニとはなんですか？"> 宇宙人です。 </FaqCard>
+		</section>
+		<GameniFooter />
+	</main>
+</GameniLayout>

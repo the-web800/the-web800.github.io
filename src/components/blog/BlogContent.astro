@@ -1,0 +1,60 @@
+---
+import type { CollectionEntry, CollectionKey } from "astro:content";
+import { render } from "astro:content";
+import { Icon } from "astro-icon/components";
+import ExternalLink from "../links/ExternalLink.astro";
+import InternalLink from "../links/InternalLink.astro";
+
+interface Props<T extends CollectionKey> {
+	post: CollectionEntry<T>;
+}
+
+const { post }: Props<"blog"> = Astro.props;
+const { Content } = await render(post);
+
+const formattedPubDate = post.data.pubDate.toLocaleDateString("ja-JP", {
+	year: "numeric",
+	month: "long",
+	day: "numeric",
+});
+const formattedUpdatedDate = post.data.updatedDate?.toLocaleDateString(
+	"ja-JP",
+	{
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	},
+);
+
+const updatedDateText = !formattedUpdatedDate
+	? ""
+	: `, 最終更新日 ${formattedUpdatedDate}`;
+---
+
+<main class="max-w-prose p-4">
+	<header class="text-center w-full pb-8 border-b border-gray-400">
+		<p class="text-sm text-gray-500 mb-4 font-serif">
+			{formattedPubDate}{updatedDateText ?? ""}
+		</p>
+		<h1 class="text-4xl lg:text-5xl font-bold font-serif">
+			{post.data.title}
+		</h1>
+	</header>
+	<article class="font-serif prose lg:prose-xl m-5 flex-1 min-h-64">
+		<Content />
+	</article>
+	<footer class="flex text-lg gap-4 border-t pt-2 border-gray-400">
+		<InternalLink
+			href="/rss.xml"
+			class="flex gap-0.5 items-center text-olive-500 hover:text-olive-700 decoration-olive-400 underline"
+		>
+			RSS
+			<Icon name="lucide:rss" />
+		</InternalLink>
+		<ExternalLink
+			href={`https://github.com/the-web800/the-web800.github.io/tree/main/${post.filePath}`}
+			class="text-olive-500 hover:text-olive-700 decoration-olive-400"
+			>Markdown</ExternalLink
+		>
+	</footer>
+</main>

@@ -1,0 +1,31 @@
+---
+import InternalLink from "./links/InternalLink.astro";
+---
+
+<footer class="w-full text-center text-white font-serif bg-taupe-500">
+	<div class="font-sans flex flex-col gap-1 m-4 border-b border-stone-300 pb-4">
+		<InternalLink
+			href="/contact"
+			class="text-stone-300 hover:text-stone-100 hover:decoration-white"
+			>ご連絡</InternalLink
+		>
+		<InternalLink
+			href="/license"
+			class="text-stone-300 hover:text-stone-100 hover:decoration-white"
+			>ライセンスについて</InternalLink
+		>
+		<InternalLink
+			href="/terms"
+			class="text-stone-300 hover:text-stone-100 hover:decoration-white"
+			>利用規約</InternalLink
+		>
+		<InternalLink
+			href="/privacy"
+			class="text-stone-300 hover:text-stone-100 hover:decoration-white"
+			>プライバシーポリシー</InternalLink
+		>
+	</div>
+	<div class="mb-6">
+		<p>&copy; 2026 Web800 All Rights Reserved.</p>
+	</div>
+</footer>

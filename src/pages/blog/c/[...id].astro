@@ -1,0 +1,32 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import BlogContent from "../../../components/blog/BlogContent.astro";
+import InternalLink from "../../../components/links/InternalLink.astro";
+import RoomLayout from "../../../layouts/RoomLayout.astro";
+
+export const getStaticPaths = (async () => {
+	const posts = await getCollection("blog");
+	return posts.map((post: CollectionEntry<"blog">) => ({
+		params: { id: post.id },
+		props: { post },
+	}));
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const isNews = post.data.tags.includes("_news");
+---
+
+<RoomLayout
+	title={isNews ? "News" : "Blog"}
+	floor="2"
+	top={isNews ? "/blog/news" : "/blog"}
+	noHeaderH1
+>
+	<div class="flex flex-col h-full w-full items-center">
+		<BlogContent {post} />
+		<InternalLink href="/blog/" class="m-5 text-xl"
+			>Blog 部屋トップへ戻る</InternalLink
+		>
+	</div>
+</RoomLayout>

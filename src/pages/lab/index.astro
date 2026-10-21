@@ -1,0 +1,17 @@
+---
+import WorkList from "../../components/WorkList.astro";
+import RoomLayout from "../../layouts/RoomLayout.astro";
+import { works as allWorks } from "../../lib/works";
+
+const works = allWorks
+	.filter((data) => data.dir === "lab")
+	.map((data) => data.work);
+---
+
+<RoomLayout title="Lab" floor="0" top="/lab">
+	<main class="w-full flex-1 bg-olive-900 flex flex-col items-center">
+		<div class="w-full max-w-6xl p-5">
+			<WorkList {works} />
+		</div>
+	</main>
+</RoomLayout>

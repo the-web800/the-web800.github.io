@@ -1,31 +1,38 @@
 ---
-import ElevatorIcon from "../components/ElevatorIcon.astro";
-import Elevator from "../components/Elevator.svelte";
+import ElevatorIcon from "../components/elevator/ElevatorIcon.astro";
+import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 import "../styles/global.css";
-const { title, floor } = Astro.props;
+
+interface Props {
+	title: string;
+	// B1は0になる
+	floor: string;
+	fixed?: boolean;
+	top: string;
+	noHeaderH1?: boolean;
+}
+const { title, floor, fixed = true, top, noHeaderH1 = false } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="ja">
 	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width">
+		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg"> -->
+		<!-- <link rel="icon" href="/favicon.ico"> -->
+		<meta name="generator" content={Astro.generator}>
 		<title>{title} | House800</title>
 	</head>
-	<body class="flex flex-col h-screen">
+	<body class="flex flex-col min-h-svh">
+		<Header title={title} fixed={fixed} {top} {noHeaderH1} />
 		<div class="fixed bottom-0 right-0">
 			<ElevatorIcon {floor} />
 		</div>
-		<div class="flex-1">
+		<div class="flex-1 flex flex-col">
 			<slot />
 		</div>
-		<footer class=" w-full text-center text-white font-serif bg-taupe-500">
-			<div class="m-4">
-				<p>&copy; 2026 Web800 All Rights Reserved.</p>
-			</div>
-		</footer>
+		<Footer />
 	</body>
 </html>

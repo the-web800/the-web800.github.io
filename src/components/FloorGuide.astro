@@ -1,0 +1,59 @@
+---
+import InternalLink from "./links/InternalLink.astro";
+
+const guide = [
+	{
+		floor: "2",
+		bgStyle: "bg-rose-200",
+		floorStyle: "text-black",
+		rooms: [
+			["Den", "使い道のないコードや、趣味のいろいろ。", "/den"],
+			["Studio", "プログラム等の完成品置き場。", "/studio"],
+			["Blog", "ニュースと、簡単なブログ。", "/blog"],
+		],
+	},
+	{
+		floor: "1",
+		bgStyle: "bg-emerald-200",
+		floorStyle: "text-black",
+		rooms: [
+			["Entrance", "この家の入口。", "/"],
+			["About", "この家についての説明と、家主のプロフィール。", "/about"],
+		],
+	},
+	{
+		floor: "B1",
+		bgStyle: "bg-stone-800",
+		floorStyle: "text-white",
+		rooms: [["Lab", "新しい技術の実験等。", "/lab"]],
+	},
+];
+---
+
+<div class="flex flex-col">
+	{guide.map(({ floor, bgStyle, floorStyle, rooms }) => (
+		<div class={`${bgStyle} flex`}>
+			<div
+				class={`w-16 text-2xl ${floorStyle} text-center font-mono font-bold p-2 border-white border-2 border-r-0`}
+			>
+				{floor}
+			</div>
+			<table class="w-full border-collapse border-l-4 border-white">
+				<tbody>
+					{rooms.map((room) => (
+						<tr>
+							<td
+								class={`border-2 text-center ${floorStyle} border-white w-24 p-2`}
+							>
+								<InternalLink href={room[2]}>{room[0]}</InternalLink>
+							</td>
+							<td class={`border-2 ${floorStyle} border-white p-2`}>
+								{room[1]}
+							</td>
+						</tr>
+					))}
+				</tbody>
+			</table>
+		</div>
+	))}
+</div>
