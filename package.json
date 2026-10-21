@@ -13,7 +13,6 @@
 		"check:links": "lychee ./dist --root-dir ./dist --remap \"^https://the-web800\\.github\\.io file://$(pwd)/dist\""
 	},
 	"dependencies": {
-		"@astrojs/markdown-satteri": "^0.4.4",
 		"@astrojs/mdx": "^8.1.0",
 		"@astrojs/rss": "^4.0.19",
 		"@lucide/svelte": "^1.59.0",
@@ -29,7 +28,6 @@
 		"@tailwindcss/typography": "^0.5.20",
 		"@tailwindcss/vite": "^4.3.3",
 		"@types/node": "^26.6.5",
-		"@types/sanitize-html": "^2.16.2",
 		"astro": "^7.4.0",
 		"astro-expressive-code": "^0.44.2",
 		"svelte": "^5.57.2",
