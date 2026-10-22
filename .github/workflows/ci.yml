@@ -1,0 +1,39 @@
+name: CI
+
+on: [push, pull_request, workflow_dispatch]
+
+permissions:
+  issues: write # required for peter-evans/create-issue-from-file
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/setup@v3
+        with:
+          require-lockfile: true
+          runtime: node@24
+      - run: pnpm check:biome
+      - run: pnpm build
+      
+      - name: Link Checker
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: ./dist --root-dir ./dist --remap "^https://the-web800\.github\.io file://$(pwd)/dist"
+          fail: false
+          output: lychee/out.md
+          
+
+      - name: Create Issue From File
+        if: steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Link Checker Report
+          content-filepath: ./lychee/out.md
+          labels: report, automated issue
+          
+      - name: Fail if links are broken
+        if: steps.lychee.outputs.exit_code != 0
+        run: exit 1
