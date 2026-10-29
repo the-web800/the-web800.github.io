@@ -4,7 +4,7 @@ on:
   # `main`ブランチにプッシュするたびにワークフローをトリガーします。
   # 別のブランチを使用している場合は、`main`をそのブランチ名に置き換えてください。
   push:
-    branches: [ main ]
+    branches: [main]
   # GitHub上のActionsタブからこのワークフローを手動で実行できます。
   workflow_dispatch:
 
@@ -28,7 +28,7 @@ jobs:
           # package-manager: pnpm@latest # 依存関係のインストールとサイトのビルドに使用するNodeパッケージマネージャーです。ロックファイルに基づいて自動検出されます。（オプション）
           # build-cmd: pnpm run build # サイトをビルドするためのコマンドです。デフォルトでパッケージのbuildスクリプトを実行します。（オプション）
         # env:
-          # PUBLIC_POKEAPI: 'https://pokeapi.co/api/v2' # 変数の値にはシングルクォートを使用してください。（オプション）
+        # PUBLIC_POKEAPI: 'https://pokeapi.co/api/v2' # 変数の値にはシングルクォートを使用してください。（オプション）
 
   deploy:
     needs: build

@@ -1,4 +1,5 @@
 ---
+
 title: House800の技術
 pubDate: 2026-10-16T21:00:00+09:00
 description: このサイト（House800）の技術スタックに関する簡単な紹介記事。

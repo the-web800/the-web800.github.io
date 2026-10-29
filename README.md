@@ -38,14 +38,14 @@ pnpm dev
 
 ## コマンド
 
-| コマンド | 説明 |
-| --- | --- |
-| `pnpm dev` | 開発サーバーを起動 |
-| `pnpm build` | 本番用ビルド |
-| `pnpm preview` | ビルド結果をローカルで確認 |
-| `pnpm check:links` | リンク切れチェック |
-| `pnpm check:biome` | Biomeチェック |
-| `pnpm check:write` | Biomeチェック&書き換え |
+| コマンド           | 説明                       |
+| ------------------ | -------------------------- |
+| `pnpm dev`         | 開発サーバーを起動         |
+| `pnpm build`       | 本番用ビルド               |
+| `pnpm preview`     | ビルド結果をローカルで確認 |
+| `pnpm check:links` | リンク切れチェック         |
+| `pnpm check:biome` | Biomeチェック              |
+| `pnpm check:write` | Biomeチェック&書き換え     |
 
 ## デプロイ
 
