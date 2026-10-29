@@ -16,7 +16,7 @@ jobs:
           runtime: node@24
       - run: pnpm check:biome
       - run: pnpm build
-      
+
       - name: Link Checker
         id: lychee
         uses: lycheeverse/lychee-action@v2
@@ -24,7 +24,6 @@ jobs:
           args: ./dist --root-dir ./dist --remap "^https://the-web800\.github\.io file://$(pwd)/dist"
           fail: false
           output: lychee/out.md
-          
 
       - name: Create Issue From File
         if: steps.lychee.outputs.exit_code != 0
@@ -33,7 +32,7 @@ jobs:
           title: Link Checker Report
           content-filepath: ./lychee/out.md
           labels: report, automated issue
-          
+
       - name: Fail if links are broken
         if: steps.lychee.outputs.exit_code != 0
         run: exit 1
