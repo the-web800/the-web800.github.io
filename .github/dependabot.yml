@@ -10,6 +10,13 @@ updates:
     # Check the npm registry for updates every week
     schedule:
       interval: "weekly"
+    groups:
+      npm-dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
 
   # Enable version updates for GitHub Actions
   - package-ecosystem: "github-actions"
